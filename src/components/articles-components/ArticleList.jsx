@@ -3,12 +3,14 @@ import { useState, useEffect } from "react"
 import { ArticleCard } from "./ArticleCard";
 
 export const ArticleList = () => {
-    const [articles, setArticles] = useState([])
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading ] = useState(true);
 
     useEffect(() => {
         getAllArticles().then(({data}) => {
             setArticles((currArticles) => {
                 const articlesData = data.articles;
+                setLoading(false);
             return [...currArticles], articlesData;
         })
         }
@@ -18,6 +20,10 @@ export const ArticleList = () => {
         
 
     },[]);
+
+    if(loading){
+        return ( <p>...is Loading</p>)
+    }
 
     return (
         <ul className="flex">
