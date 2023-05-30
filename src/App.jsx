@@ -9,9 +9,11 @@ function App() {
 
   return (
     <>
-    <h1>Welcome</h1>
-      <NavBar/>
-      <Header/>
+    <a id="skip" href="#main-content">Skip to main content</a>
+    <div className="flex header-area">
+    <Header/>
+    <NavBar/>
+    </div>
       <Routes>
         <Route path="/" element={<Articles/>}/>
       </Routes>

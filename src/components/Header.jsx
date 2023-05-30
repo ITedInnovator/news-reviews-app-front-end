@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
     return ( 
     <header>
-        <a href="#">ACNewsReviews</a>
+        <p>ACNewsReviews</p>
     </header>
     );
 }

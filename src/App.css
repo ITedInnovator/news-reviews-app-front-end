@@ -24,4 +24,15 @@ img {
   list-style: none;
 }
 
+.header-area {
+  flex-wrap: nowrap;
+  width: 60%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+/* a#skip {
+  visibility: hidden;
+} */
+
 
