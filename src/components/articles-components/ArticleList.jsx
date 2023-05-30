@@ -5,6 +5,7 @@ import { ArticleCard } from "./ArticleCard";
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading ] = useState(true);
+    const [error, setError] = useState("")
 
     useEffect(() => {
         getAllArticles().then(({data}) => {
@@ -24,6 +25,8 @@ export const ArticleList = () => {
     if(loading){
         return ( <p>...is Loading</p>)
     }
+
+    if(error) return <ErrorComponent status={error.status} msg={error.msg} />
 
     return (
         <ul className="flex">

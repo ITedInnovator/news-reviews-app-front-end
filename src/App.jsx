@@ -4,6 +4,7 @@ import { Header } from './components/Header'
 import { NavBar } from './components/NavBar'
 import { Routes, Route } from 'react-router'
 import { Articles } from './pages/Articles'
+import { ErrorComponent } from './components/ErrorComponent'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     </div>
       <Routes>
         <Route path="/" element={<Articles/>}/>
+        <Route path="*" element={<ErrorComponent status="Not Found" msg="Like fake news this page does not exist"/>} />
       </Routes>
     </>
   )
