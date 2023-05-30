@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import { Header } from './components/Header'
+import { NavBar } from './components/NavBar'
+import { Routes, Route } from 'react-router'
+import { Articles } from './pages/Articles'
+import { ErrorComponent } from './components/ErrorComponent'
 
 function App() {
 
   return (
     <>
-      <h1>News Reviews Front End</h1>
+    <a id="skip" href="#main-content">Skip to main content</a>
+    <div className="flex header-area">
+    <Header/>
+    <NavBar/>
+    </div>
+      <Routes>
+        <Route path="/" element={<Articles/>}/>
+        <Route path="*" element={<ErrorComponent status="Not Found" msg="Like fake news this page does not exist"/>} />
+      </Routes>
     </>
   )
 }
