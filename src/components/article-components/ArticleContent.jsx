@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 export const ArticleContent = ({title, imageURL, body, author, published, topic}) => {
     const formattedDate = new Date(published);
-    console.dir(formattedDate);
     const date = formattedDate.getDate();
     const month = formattedDate.getMonth();
     const year = formattedDate.getFullYear();

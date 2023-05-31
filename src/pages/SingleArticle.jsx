@@ -11,9 +11,13 @@ export const SingleArticle = () => {
     const [ error, setError ] = useState("");
     
     useEffect( () => {
-        getArticleById(setArticleData, setLoading, article_id).catch(err => {
-            setError(err);
+        getArticleById(article_id).then((article) => {
+        setArticleData(( currArticle ) => {
+            return article;
         })
+        
+        setLoading(false)
+    })
     }, [])
 
         const {title, topic, author, body, created_at, article_img_url } = articleData;

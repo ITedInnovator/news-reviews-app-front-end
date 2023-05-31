@@ -9,7 +9,15 @@ export const ArticleList = () => {
     const [error, setError] = useState("")
 
     useEffect(() => {
-        getAllArticles(setArticles, setLoading).catch( err => {
+        getAllArticles().then((articles) => {
+            setArticles((currArticles) => {
+                return articles;
+            });
+
+            setLoading(false);
+
+        })
+        .catch( err => {
             setError(err);
         })
 
