@@ -20,7 +20,10 @@ export const SingleArticle = () => {
     
     if(error){
         return ( <ErrorComponent status={error.status} message={error.message}/>)
-    } 
+    }
+    if(loading){
+        return ( <p>Loading...</p>);
+    }
 
     return ( 
             <ArticleContent title={title} topic={topic} author={author} body={body} imageURL={article_img_url} published={created_at} />
