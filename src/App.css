@@ -31,4 +31,9 @@ img {
   justify-content: space-between;
 }
 
+.featured-image {
+  width: 100%;
+  max-width: 600px;
+}
+
 
