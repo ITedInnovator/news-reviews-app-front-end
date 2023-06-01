@@ -20,6 +20,8 @@ export const SingleArticle = () => {
         setLoading(false)
     })
     }, [])
+
+        const {title, topic, author, body, created_at, article_img_url, votes } = articleData;
     
     if(error){
         return ( <ErrorComponent status={error.status} message={error.message}/>)
