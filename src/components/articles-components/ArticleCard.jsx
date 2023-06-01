@@ -1,7 +1,9 @@
-export const ArticleCard = ({title, imageUrl, topic}) => {
+import { Link } from "react-router-dom";
+
+export const ArticleCard = ({article_id, title, imageUrl, topic}) => {
     return (
         <li className="card">
-             <h2>{title}</h2>
+             <h2><Link to={`/articles/${article_id}`}>{title}</Link></h2>
             <img width="250px" src={imageUrl} />
             <p>{topic}</p>
         </li>

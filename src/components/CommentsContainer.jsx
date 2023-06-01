@@ -5,7 +5,7 @@ import { Comment } from "./Comment";
 export const CommentsContainer = ({article_id}) => {
 
 const [comments, setComments ] = useState([])
-article_id = 1;
+
 
 useEffect(() => {
     getArticleComments(article_id).then((comments) => {
@@ -14,15 +14,17 @@ useEffect(() => {
 }, [])
 
 return(
+    <>
+    <h2>{comments.length} Comments</h2>
     <ul>
     {comments.map(({comment_id, body, author, created_at, votes }) => {
         return (
-
             <Comment key={comment_id} body={body} author={author} created_at={created_at} votes={votes}/>
 
         )
     })}
     </ul>
+    </>
 )
 
     
