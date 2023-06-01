@@ -20,8 +20,6 @@ export const SingleArticle = () => {
         setLoading(false)
     })
     }, [])
-
-        const {title, topic, author, body, created_at, article_img_url } = articleData;
     
     if(error){
         return ( <ErrorComponent status={error.status} message={error.message}/>)
@@ -32,7 +30,7 @@ export const SingleArticle = () => {
 
     return ( 
         <>
-            <ArticleContent title={title} topic={topic} author={author} body={body} imageURL={article_img_url} published={created_at} />
+            <ArticleContent articleData={articleData} />
             <CommentsContainer article_id={article_id} />
         </>
     )

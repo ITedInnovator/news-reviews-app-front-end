@@ -17,12 +17,12 @@ return(
     <>
     <h2>{comments.length} Comments</h2>
     <ul>
-    {comments.map(({comment_id, body, author, created_at, votes }) => {
+    { comments ? comments.map(({comment_id, body, author, created_at, votes }) => {
         return (
             <Comment key={comment_id} body={body} author={author} created_at={created_at} votes={votes}/>
 
         )
-    })}
+    }) : null}
     </ul>
     </>
 )
