@@ -24,3 +24,7 @@ export  const getArticleById = ( article_id) => {
             return articleData;
     })
 }
+
+export const updateArticleVotes = (article_id, increment) => {
+    return instance.patch(`/articles/${article_id}`,{inc_votes: increment});
+}
