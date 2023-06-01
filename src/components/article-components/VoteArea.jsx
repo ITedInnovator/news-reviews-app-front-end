@@ -33,18 +33,14 @@ export const VoteArea = ({setArticleData, articleData}) => {
 
     }
 
-    if(error) {
-        return ( 
-        <ErrorComponent status={error.code} msg="Unfortunately we are unable to change your vote at this time. Please try again later..." />
-        )
-    }
-
-
     return (
+        <>
         <div>
             <VoteButton action="+" callback={upVote} />
             <p>Votes {articleData.votes}</p>
             <VoteButton action="-" callback={downVote} />
         </div>
+        <ErrorComponent status={error.code} msg={error ? "Unfortunately we are unable to change your vote at this time. Please try again later..." : null} />
+        </>
     )
 }
