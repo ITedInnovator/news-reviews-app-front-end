@@ -5,13 +5,17 @@ import { Comment } from "./Comment";
 export const CommentsContainer = ({article_id}) => {
 
 const [comments, setComments ] = useState([])
+const [ loading, setLoading ] = useState(true)
 
 
 useEffect(() => {
     getArticleComments(article_id).then((comments) => {
-        setComments(comments)
+        setComments(comments);
+        setLoading(false);
     })
 }, [])
+
+if(loading) return ( <p>...Loading</p>)
 
 return(
     <>
