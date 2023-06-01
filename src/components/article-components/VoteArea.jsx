@@ -20,8 +20,14 @@ export const VoteArea = ({setArticleData, articleData}) => {
     }
 
     function downVote(){
+        setArticleData((currArticleData) => {
+                return {...currArticleData, votes: currArticleData.votes - 1};
+            })
 
         updateArticleVotes(articleData.article_id, -1).catch(err => {
+            setArticleData((currArticleData) => {
+               return {...currArticleData, votes: currArticleData.votes + 1};
+            });
             setError(err);
         })
 
