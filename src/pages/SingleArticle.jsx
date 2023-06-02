@@ -3,7 +3,7 @@ import { ArticleContent } from "../components/article-components/ArticleContent"
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import { ErrorComponent } from "../components/ErrorComponent";
-import { CommentsContainer } from "../components/CommentsContainer";
+import { CommentsContainer } from "../components/comments-components/CommentsContainer";
 import { VoteArea } from "../components/article-components/VoteArea";
 
 export const SingleArticle = () => {

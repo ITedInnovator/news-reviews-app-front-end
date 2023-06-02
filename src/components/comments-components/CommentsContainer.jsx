@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { getArticleComments } from "../api";
+import { getArticleComments } from "../../api";
 import { Comment } from "./Comment";
+import { CommentForm } from "./CommentForm";
 
 export const CommentsContainer = ({article_id}) => {
 
 const [comments, setComments ] = useState([])
 const [ loading, setLoading ] = useState(true)
+
 
 
 useEffect(() => {
@@ -28,6 +30,7 @@ return(
         )
     }) : null}
     </ul>
+    <CommentForm setComments={setComments}/>
     </>
 )
 
