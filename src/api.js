@@ -28,3 +28,9 @@ export  const getArticleById = ( article_id) => {
 export const updateArticleVotes = (article_id, increment) => {
     return instance.patch(`/articles/${article_id}`,{inc_votes: increment});
 }
+
+export const postNewComment = (article_id, comment) => {
+    return instance.post(`/articles/${article_id}/comments`, comment).then(({data}) => {
+        return data.comment;
+    })
+}
