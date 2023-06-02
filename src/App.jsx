@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router'
 import { Articles } from './pages/Articles'
 import { ErrorComponent } from './components/ErrorComponent'
 import { SingleArticle } from './pages/SingleArticle'
+import { SingleTopicPage } from './pages/SingleTopicPage'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Articles/>}/>
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="*" element={<ErrorComponent status="Not Found" msg="Like fake news this page does not exist"/>} />
+        <Route path="/topics/:slug" element={<SingleTopicPage />} />
       </Routes>
     </>
   )
