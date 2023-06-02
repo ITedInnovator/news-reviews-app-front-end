@@ -28,3 +28,9 @@ export  const getArticleById = ( article_id) => {
 export const updateArticleVotes = (article_id, increment) => {
     return instance.patch(`/articles/${article_id}`,{inc_votes: increment});
 }
+
+export const getTopics = () => {
+    return instance.get("/topics").then(({data}) => {
+        return data.topics;
+    })
+}
