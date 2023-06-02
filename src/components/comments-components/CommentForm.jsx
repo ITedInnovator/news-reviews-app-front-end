@@ -13,6 +13,7 @@ export const CommentForm = ({setComments}) => {
     const [ error, setError ] = useState({});
     const [ textInputError, setTextInputError ] = useState("");
     const [ textInputSuccess, setTextInputSuccess ] = useState("");
+    const [ isDisabled, setIsDisabled ] = useState(false);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -23,14 +24,17 @@ export const CommentForm = ({setComments}) => {
                 return [ ...currComments, comment];
             })
 
-        postNewComment(article_id, newComment).catch(err => {
+            setIsDisabled(true);
+
+        postNewComment(article_id, newComment).then(() => {
+            setIsDisabled(false);
+        }).catch(err => {
                 setError(err)
             })
     }
 
     function handleText(e){
-        console.dir(e.target)
-        if( e.target.value.length < 5){
+        if( e.target.value.length <= 5){
             e.target.style.color = "red";
             setTextInputError("Must be at least 5 characters");
             setTextInputSuccess("");
@@ -38,9 +42,10 @@ export const CommentForm = ({setComments}) => {
         } else if (e.target.value.length > 5){
             e.target.style.color = "green";
             setTextInputError("");
-            setTextInputSuccess("All good!")
+            setTextInputSuccess("All good!");
         }
         setText(e.target.value);
+
     }
 
     return (
@@ -50,10 +55,11 @@ export const CommentForm = ({setComments}) => {
         <input id="comment-text" type="textarea" required onBlur={handleText} />
         <p className="error">{textInputError}</p>
         <p className="success">{textInputSuccess}</p>
-        <button type="submit">Add new comment</button>
+        <button disabled={isDisabled} type="submit">Add new comment</button>
         </form>
         <p className="success">{success}</p>
-        <ErrorComponent status={error.code} msg={error.response?.data.msg} />
+        <ErrorComponent status={error.code} msg={Object.keys(error).length > 0 ? "Something went wrong please contact the website admin" : null} />
+        
         </>
     )
 }
