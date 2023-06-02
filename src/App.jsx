@@ -8,7 +8,6 @@ import { ErrorComponent } from './components/ErrorComponent'
 import { SingleArticle } from './pages/SingleArticle'
 
 function App() {
-  const user = "cooljmessy";
 
   return (
     <>

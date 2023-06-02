@@ -39,10 +39,12 @@ export const CommentForm = ({setComments}) => {
             setTextInputError("Must be at least 5 characters");
             setTextInputSuccess("");
             if(e.target.value.length === 0) setTextInputError("required")
+            setIsDisabled(true)
         } else if (e.target.value.length > 5){
             e.target.style.color = "green";
             setTextInputError("");
             setTextInputSuccess("All good!");
+            setIsDisabled(false)
         }
         setText(e.target.value);
 
@@ -58,7 +60,7 @@ export const CommentForm = ({setComments}) => {
         <button disabled={isDisabled} type="submit">Add new comment</button>
         </form>
         <p className="success">{success}</p>
-        <ErrorComponent status={error.code} msg={Object.keys(error).length > 0 ? "Something went wrong please contact the website admin" : null} />
+        <ErrorComponent status={error.code} msg={Object.keys(error).length > 0 ? "Something went wrong please try again later" : null} />
         
         </>
     )
