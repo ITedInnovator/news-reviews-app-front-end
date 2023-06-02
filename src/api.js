@@ -32,5 +32,12 @@ export const updateArticleVotes = (article_id, increment) => {
 export const getTopics = () => {
     return instance.get("/topics").then(({data}) => {
         return data.topics;
+
+    })
+}
+
+export const postNewComment = (article_id, comment) => {
+    return instance.post(`/articles/${article_id}/comments`, comment).then(({data}) => {
+        return data.comment;
     })
 }

@@ -36,4 +36,19 @@ img {
   max-width: 600px;
 }
 
+.error {
+  color: red;
+}
 
+.success {
+  color: green;
+}
+
+a {
+  color: lightblue;
+}
+
+a:hover {
+  color: turquoise;
+  
+}

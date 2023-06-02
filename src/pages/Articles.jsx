@@ -1,4 +1,4 @@
-import { CommentsContainer } from "../components/CommentsContainer"
+import { CommentsContainer } from "../components/comments-components/CommentsContainer"
 import { ArticleList } from "../components/articles-components/ArticleList"
 
 export const Articles = () => {
