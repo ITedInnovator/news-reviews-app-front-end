@@ -30,10 +30,10 @@ export const SingleArticle = () => {
     }
 
     return ( 
-        <>
+        <main id="main-content">
             <VoteArea articleData={articleData} setArticleData={setArticleData}/>
             <ArticleContent articleData={articleData} />
             <CommentsContainer article_id={article_id} />
-        </>
+        </main>
     )
 }

@@ -43,3 +43,12 @@ img {
 .success {
   color: green;
 }
+
+a {
+  color: lightblue;
+}
+
+a:hover {
+  color: turquoise;
+  
+}
